@@ -1,15 +1,19 @@
 package server
 
 import (
-	"log"
+	handlers "todo/api"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-func main() {
+func SetRoutes(server *fiber.App) {
+	server.Get("/", handlers.GetGreeting)
+}
+
+func InitServer() {
 	app := fiber.New()
 
-	app.Get("/", getGreeting)
+	SetRoutes(app)
 
-	log.Fatal(app.Listen(":3000"))
+	app.Listen(":3030")
 }
