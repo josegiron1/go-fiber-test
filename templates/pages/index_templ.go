@@ -51,16 +51,7 @@ func Page() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</button></form><div id=\"todos\" hx-get=\"/todos\" hx-trigger=\"load\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Var5 := `Get Some HTML`
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</button></form><div id=\"todos\" hx-get=\"/todos\" hx-trigger=\"load\"></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -1,12 +1,27 @@
 package components
 
-templ TodosList() {
-    <div>
-        <h1>Todos</h1>
-        <ul>
-            <li>Learn Go</li>
-            <li>Learn React</li>
-            <li>...</li>
-        </ul>
+import "todo/api/models"
+
+templ TodosList(todos []models.Todo) {
+		<div>
+			for _, todo := range todos {
+				@TodoItem(todo)
+			}
+			<div id="no-todos" class="hidden first:block first:pb-2 first:pt-3">
+				<p>Congrats, you have no todos! Or... do you? 😰</p>
+			</div>
+		</div>
+}
+
+templ TodoItem(todo models.Todo) {
+    <div id="todo-{{ todo.ID }}" class="todo-item flex items-center justify-between px-2 py-1 border-b border-gray-200">
+        <div class="flex items-center">
+            <input type="checkbox" class="mr-2" checked="{todo.Completed}" onchange="TodoCompleted({todo.ID}, this.checked)" />
+            <p class="todo-text {if todo.Completed}line-through{end}">{todo.Title}</p>
+        </div>
+        <div class="flex items-center">
+            <button class="mr-2" onclick="EditTodo({todo.ID})">Edit</button>
+            <button onclick="DeleteTodo({todo.ID})">Delete</button>
+        </div>
     </div>
 }

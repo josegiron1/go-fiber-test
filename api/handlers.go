@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"todo/api/models"
 	"todo/api/services"
+	"todo/templates/components"
 	"todo/templates/pages"
 
 	"github.com/a-h/templ"
@@ -45,5 +46,5 @@ func GetTodos(c *fiber.Ctx) error {
 			"error": "Failed to get Todos",
 		})
 	}
-	return c.Status(fiber.StatusOK).JSON(todos)
+	return adaptor.HTTPHandler(templ.Handler(components.TodosList(todos)))(c)
 }
