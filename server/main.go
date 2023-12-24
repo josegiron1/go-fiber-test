@@ -7,7 +7,9 @@ import (
 )
 
 func SetRoutes(server *fiber.App) {
-	server.Get("/", handlers.GetGreeting)
+	server.Get("/", handlers.GetHomePage)
+	server.Post("/todo", handlers.CreateTodo)
+	server.Get("/todos", handlers.GetTodos)
 }
 
 func InitServer() {

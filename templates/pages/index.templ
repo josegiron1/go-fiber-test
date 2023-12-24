@@ -1,0 +1,18 @@
+package pages
+
+import (
+    "todo/templates/layout"
+)
+
+templ Page() {
+    @layout.Layout("Todo") {
+        <div class="h-full flex flex-col flex-1 justify-center items-center">
+            <h1 class=""> Todo App </h1>
+            <form id="todo-form" hx-post="/todo" hx-target="#todos" hx-swap="afterend">
+                <input id="title" name="title" type="text" />
+                <button type="submit">Submit</button>
+            </form>
+            <div id="todos" hx-get="/todos" hx-trigger="load">Get Some HTML</div>
+        </div>
+    } 
+}

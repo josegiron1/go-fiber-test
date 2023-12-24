@@ -1,0 +1,21 @@
+package layout
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en" class="h-full">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			// <link href="./internal/assets/dist/styles.css" rel="stylesheet"/>
+			<title>{ title }</title>
+			<link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.20/dist/full.min.css" rel="stylesheet" type="text/css"/>
+			<script src="https://cdn.tailwindcss.com"></script>
+			<script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+		</head>
+		<body class="flex flex-col w-full h-screen font-mono">
+			<div class="flex-1">
+				{ children... }
+			</div>
+		</body>
+	</html>
+}
